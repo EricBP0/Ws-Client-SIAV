@@ -17,7 +17,7 @@
         highlightBorderColor: '#f1f1f1',
         mapData: {
           'AUS': 760,
-          'BRA': 550,
+          'BRA': 3550,
           'CAN': 120,
           'DEU': 1300,
           'FRA': 540,

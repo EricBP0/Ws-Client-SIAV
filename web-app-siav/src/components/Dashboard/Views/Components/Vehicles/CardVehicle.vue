@@ -1,13 +1,9 @@
 
 <template>
   <div class="card card-user">
-    <div class="image">
-      <img src="static/img/background/damir-bosnjak.jpg" alt="...">
-    </div>
     <div class="card-body">
       <div class="author">
         <a href="#">
-          <img class="avatar border-gray" src="static/img/user-png.png" alt="...">
           <h5 class="title">User</h5>
         </a>
         <p class="description">

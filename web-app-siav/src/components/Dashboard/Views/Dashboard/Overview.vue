@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!--Stats cards-->
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6" v-for="stats in statsCards">
         <stats-card :type="stats.type"
@@ -14,59 +13,12 @@
         </stats-card>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6">
-        <chart-card :chart-data="activeUsersChart.data"
-                    chart-id="activity-chart"
-                    chart-title="TOTAL EARNINGS IN LAST TEN QUARTERS">
-          <span slot="title">$34,657</span>
-          <badge slot="title-label" type="success">+18%</badge>
-
-          <template slot="footer-title">Financial Statistics</template>
-
-          <p-button slot="footer-right" aria-label="add button" type="success" round icon size="sm">
-            <i class="nc-icon nc-simple-add"></i>
-          </p-button>
-        </chart-card>
-      </div>
-
-      <div class="col-lg-4 col-sm-6">
-        <chart-card :chart-data="emailsCampaignChart.data"
-                    chart-id="emails-chart"
-                    color="#ef8156" chart-title="TOTAL SUBSCRIPTIONS IN LAST 7 DAYS">
-          <span slot="title">169</span>
-          <badge slot="title-label" type="danger">-14%</badge>
-
-          <template slot="footer-title">View all members</template>
-
-          <p-button slot="footer-right" aria-label="view button" type="danger" round icon size="sm">
-            <i class="nc-icon nc-button-play"></i>
-          </p-button>
-        </chart-card>
-      </div>
-
-      <div class="col-lg-4 col-sm-6">
-        <chart-card :chart-data="activeCountriesChart.data"
-                    chart-id="active-countries-chart"
-                    color="#fbc658" chart-title="Active Countries">
-          <span slot="title">8,960</span>
-          <badge slot="title-label" type="warning">~51%</badge>
-
-          <template slot="footer-title">View more details</template>
-
-          <p-button slot="footer-right" aria-label="view more button" type="warning" round icon size="sm">
-            <i class="nc-icon nc-alert-circle-i"></i>
-          </p-button>
-        </chart-card>
-      </div>
-    </div>
 
     <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">Global Sales by Top Locations</h4>
-              <p class="category">All products that were shipped</p>
+              <h4 class="card-title">Regiões Disponíveis</h4>
             </div>
             <div class="card-body">
               <div class="row">
@@ -87,9 +39,6 @@
                         <td class="text-right">
                           2.920
                         </td>
-                        <td class="text-right">
-                          53.23%
-                        </td>
                       </tr>
                       <tr>
                         <td>
@@ -101,9 +50,6 @@
                         <td class="text-right">
                           1.300
                         </td>
-                        <td class="text-right">
-                          20.43%
-                        </td>
                       </tr>
                       <tr>
                         <td>
@@ -113,10 +59,7 @@
                         </td>
                         <td>Australia</td>
                         <td class="text-right">
-                          760
-                        </td>
-                        <td class="text-right">
-                          10.35%
+                          750
                         </td>
                       </tr>
                       <tr>
@@ -129,9 +72,6 @@
                         <td class="text-right">
                           690
                         </td>
-                        <td class="text-right">
-                          7.87%
-                        </td>
                       </tr>
                       <tr>
                         <td>
@@ -143,9 +83,6 @@
                         <td class="text-right">
                           600
                         </td>
-                        <td class="text-right">
-                          5.94%
-                        </td>
                       </tr>
                       <tr>
                         <td>
@@ -155,10 +92,7 @@
                         </td>
                         <td>Brasil</td>
                         <td class="text-right">
-                          550
-                        </td>
-                        <td class="text-right">
-                          4.34%
+                          3550
                         </td>
                       </tr>
                       </tbody>
@@ -170,107 +104,6 @@
           </div>
         </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <task-list></task-list>
-      </div>
-      <div class="col-md-6">
-        <chart-card :chart-data="activityChart.data"
-                    :chart-height="300"
-                    chart-id="activity-bar-chart"
-                    chart-type="Bar">
-          <template slot="header">
-            <h4 class="card-title">2018 Sales</h4>
-            <p class="card-category">All products including Taxes</p>
-          </template>
-          <template slot="footer">
-            <div class="legend">
-              <i class="fa fa-circle text-info"></i> Tesla Model S
-              <i class="fa fa-circle text-danger"></i> BMW 5 Series
-            </div>
-            <hr>
-            <div class="stats">
-              <i class="fa fa-check"></i> Data information certified
-            </div>
-          </template>
-        </chart-card>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-3 col-sm-6">
-        <circle-chart-card :percentage="70"
-                           chart-id="email-statistics-chart"
-                           title="Email Statistics"
-                           description="Last Campaign Performance"
-                           color="#4acccd">
-          <template slot="footer">
-            <div class="legend">
-              <i class="fa fa-circle text-info"></i> Open
-            </div>
-            <hr>
-            <div class="stats">
-              <i class="fa fa-calendar"></i> Number of emails sent
-            </div>
-          </template>
-        </circle-chart-card>
-      </div>
-
-      <div class="col-lg-3 col-sm-6">
-        <circle-chart-card :percentage="34"
-                           chart-id="new-visitors-chart"
-                           title="New Visitators"
-                           description="Out Of Total Number"
-                           color="#fcc468">
-          <template slot="footer">
-            <div class="legend">
-              <i class="fa fa-circle text-warning"></i> Visited
-            </div>
-            <hr>
-            <div class="stats">
-              <i class="fa fa-check"></i> Campaign sent 2 days ago
-            </div>
-          </template>
-        </circle-chart-card>
-      </div>
-
-      <div class="col-lg-3 col-sm-6">
-        <circle-chart-card :percentage="80"
-                           title="Orders"
-                           chart-id="orders-chart"
-                           description="Total Number"
-                           color="#f17e5d">
-          <template slot="footer">
-            <div class="legend">
-              <i class="fa fa-circle text-danger"></i> Completed
-            </div>
-            <hr>
-            <div class="stats">
-              <i class="fa fa-clock-o"></i> Updated 3 minutes ago
-            </div>
-          </template>
-        </circle-chart-card>
-      </div>
-
-      <div class="col-lg-3 col-sm-6">
-        <circle-chart-card :percentage="11"
-                           title="Subscriptions"
-                           description="Our Users"
-                           color="#66615b">
-          <template slot="footer">
-            <div class="legend">
-              <i class="fa fa-circle text-secondary"></i> Ended
-            </div>
-            <hr>
-            <div class="stats">
-              <i class="fa fa-history"></i> Total users
-            </div>
-          </template>
-        </circle-chart-card>
-      </div>
-    </div>
-
   </div>
 </template>
 <script>
@@ -289,11 +122,7 @@
   export default {
     components: {
       StatsCard,
-      ChartCard,
-      CircleChartCard,
-      WorldMap,
-      Badge,
-      TaskList
+      WorldMap
     },
     /**
      * Chart data used to render stats, charts. Should be replaced with server data
@@ -303,34 +132,34 @@
         statsCards: [
           {
             type: 'warning',
-            icon: 'nc-icon nc-globe',
-            title: 'Capacity',
-            value: '105GB',
-            footerText: 'Updated now',
+            icon: 'nc-icon nc-delivery-fast',
+            title: 'Veículos Disponíveis',
+            value: '354',
+            footerText: 'Atualizado hoje',
             footerIcon: 'nc-icon nc-refresh-69'
           },
           {
             type: 'success',
             icon: 'nc-icon nc-money-coins',
-            title: 'Revenue',
-            value: '$1,345',
-            footerText: 'Last day',
+            title: 'Media de diária',
+            value: 'R$103,45',
+            footerText: 'Ontem',
             footerIcon: 'nc-icon nc-calendar-60'
           },
           {
             type: 'danger',
             icon: 'nc-icon nc-vector',
-            title: 'Errors',
-            value: '23',
-            footerText: 'In the last hour',
+            title: 'Regiões Disponíveis',
+            value: '14',
+            footerText: 'Semana Passada',
             footerIcon: 'nc-icon nc-bell-55'
           },
           {
             type: 'info',
             icon: 'nc-icon nc-favourite-28',
-            title: 'Followers',
+            title: 'Clientes Satisfeitos',
             value: '+45',
-            footerText: 'Updated now',
+            footerText: 'Atualizado hoje',
             footerIcon: 'nc-icon nc-refresh-69'
           }
         ],

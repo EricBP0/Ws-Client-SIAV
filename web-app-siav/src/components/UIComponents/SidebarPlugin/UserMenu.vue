@@ -6,7 +6,7 @@
     <div class="info">
       <a data-toggle="collapse" :aria-expanded="!isClosed" @click="toggleMenu" href="#">
          <span>
-           User
+           Usuário
            <b class="caret"></b>
         </span>
       </a>
@@ -17,19 +17,7 @@
             <li>
               <a href="#">
                 <span class="sidebar-mini-icon">Mp</span>
-                <span class="sidebar-normal">My Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="sidebar-mini-icon">Ep</span>
-                <span class="sidebar-normal">Edit Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="sidebar-mini-icon">S</span>
-                <span class="sidebar-normal">Settings</span>
+                <span class="sidebar-normal">Meu Perfil</span>
               </a>
             </li>
           </ul>

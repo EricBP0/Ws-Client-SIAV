@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 export default (function initPollyFills() {
 if (!String.prototype.startsWith) {
   String.prototype.startsWith = function(searchString, position) {

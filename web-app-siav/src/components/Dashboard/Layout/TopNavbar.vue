@@ -18,14 +18,6 @@
     <template slot="navbar-menu">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link btn-rotate" href="#pablo">
-            <i class="nc-icon nc-settings-gear-65"></i>
-            <p>
-              <span class="d-lg-none d-md-block">Account</span>
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link btn-rotate" title="Logar" href="#/login" >
             <i class="nc-icon nc-single-02"></i>
             <p style="margin-left: 5px">
