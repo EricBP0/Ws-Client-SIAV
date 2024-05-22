@@ -1,14 +1,13 @@
-
 <template>
   <div class="card card-user">
-    <div class="card-body">
+    <div class="image">
+      <img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="static/img/logo-siav.png" alt="...">
+    </div>
+    <div>
       <div class="author">
         <a href="#">
-          <h5 class="title">User</h5>
+          <img style="display: block; margin-left: auto; margin-right: auto; width: 35%;" class="avatar border-gray" :src="$props.img" alt="...">
         </a>
-        <p class="description">
-          @user
-        </p>
       </div>
     </div>
     <div class="card-footer">
@@ -16,46 +15,50 @@
       <div class="button-container">
         <div class="row">
           <div class="col-lg-3 col-md-6 col-6 ml-auto">
-            <h5>9.7
+            <h5>{{$props.name}}
               <br>
-              <small>Nota</small>
+              <small>Marca</small>
             </h5>
           </div>
           <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-            <h5>2 Veículos
+            <h5>R$ {{$props.preco}}
               <br>
-              <small>Alugados</small>
+              <small>Diária</small>
             </h5>
           </div>
           <div class="col-lg-3 mr-auto">
-            <h5>R$ 645,00
+            <h5>{{$props.grupo}}
               <br>
-              <small>Gastos</small>
+              <small>Grupo</small>
             </h5>
           </div>
         </div>
+        <slot name="button"></slot>
       </div>
-      <p-button type="info" >Alugar</p-button>
     </div>
   </div>
 </template>
 <script>
-  export default {}
-    /*props:{
-      grupos: [{
-        tipo: null,
-        veiculos:[]
-      }]
-    },
-    methods:{
-      getGrupsVehicles(){
-
+  export default {
+    props:{
+      name:{
+        type: String,
+        description: 'Marca/Modelo do veiculo'
       },
-      handleAlugar(){
-
+      preco:{
+        type: Number,
+        description: 'Preço Diária do veiculo'
+      },
+      grupo:{
+        type: String,
+        description: 'Grupo do veiculo'
+      },
+      img:{
+        type: String,
+        description: 'foto da mota'
       }
     }
-  }*/
+  }
 </script>
 
 <style scoped>

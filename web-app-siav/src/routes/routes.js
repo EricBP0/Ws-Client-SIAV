@@ -11,6 +11,7 @@ import TimeLine from 'src/components/Dashboard/Views/Pages/TimeLinePage.vue'
 import Login from 'src/components/Dashboard/Views/Pages/Login.vue'
 import Register from 'src/components/Dashboard/Views/Pages/Register.vue'
 import Lock from 'src/components/Dashboard/Views/Pages/Lock.vue'
+import Motos from "@/components/Dashboard/Views/Veiculos/Motos.vue";
 
 // Components pages
 import Buttons from 'src/components/Dashboard/Views/Components/Buttons.vue'
@@ -38,7 +39,9 @@ const VectorMaps = () => import(/* webpackChunkName: "maps" */ 'src/components/D
 
 // Calendar
 import Calendar from 'src/components/Dashboard/Views/Calendar/CalendarRoute.vue'
-import Motos from "@/components/Dashboard/Views/Veiculos/Motos.vue";
+import * as path from "path";
+import Carros from "@/components/Dashboard/Views/Veiculos/Carros.vue";
+
 // Charts
 const Charts = () => import(/* webpackChunkName: "widgets" */ 'src/components/Dashboard/Views/Charts.vue')
 
@@ -237,9 +240,26 @@ const routes = [
       }
     ]
   },
-  {path: '*', component: NotFound},
-  {path: "/veiculos/motos",
-  component: Motos}
+  {
+    path: '*',
+    component: NotFound},
+  {
+    path: "/veiculos",
+    redirect: "veiculos/motos",
+    component: DashboardLayout,
+    children: [
+      {
+        path: 'motos',
+        name: 'Motos',
+        component: Motos
+      },
+      {
+        path: 'carros',
+        name: 'Carros',
+        component: Carros
+      },
+    ]
+  }
 ];
 
 export default routes
