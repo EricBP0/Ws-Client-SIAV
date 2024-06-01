@@ -13,6 +13,18 @@
         </stats-card>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card" style="background-color: #4CD964; text-align: center; border: solid #01a910;">
+          <div class="col">
+            <RouterLink style="color: #006d0b; font-weight: bold; font-size: xx-large; font-family: 'Open Sans', sans-serif" to="/veiculos/carros">ALUGAR UM CARRO</RouterLink>
+          </div>
+          <div class="col">
+            <RouterLink style="color: #006d0b ;font-weight: bold; font-size: xx-large;font-family: 'Open Sans', sans-serif " to="/veiculos/motos">ALUGAR UMA MOTO</RouterLink>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-12">

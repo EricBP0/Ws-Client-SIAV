@@ -41,6 +41,7 @@ const VectorMaps = () => import(/* webpackChunkName: "maps" */ 'src/components/D
 import Calendar from 'src/components/Dashboard/Views/Calendar/CalendarRoute.vue'
 import * as path from "path";
 import Carros from "@/components/Dashboard/Views/Veiculos/Carros.vue";
+import AcompanharAluguel from "@/components/Dashboard/Views/Alugueis/AcompanharAluguel.vue";
 
 // Charts
 const Charts = () => import(/* webpackChunkName: "widgets" */ 'src/components/Dashboard/Views/Charts.vue')
@@ -257,6 +258,18 @@ const routes = [
         path: 'carros',
         name: 'Carros',
         component: Carros
+      },
+    ],
+  },
+  {
+    path: "/alugueis",
+    redirect: "alugueis/acompanhar-aluguel",
+    component: DashboardLayout,
+    children: [
+      {
+        path: 'acompanhar-aluguel',
+        name: 'AcompanharAluguel',
+        component: AcompanharAluguel
       },
     ]
   }

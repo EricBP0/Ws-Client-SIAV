@@ -1,14 +1,11 @@
 <template>
   <div class="card card-user">
-    <div class="image">
-      <img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" :src="$props.img" alt="...">
-    </div>
     <div class="card-avatar">
       <p style="text-align: center; margin-top: 15px" class="description">
         {{$props.description}}
       </p>
       <p style="text-align: center; margin-top: 6px; font-weight: bold; color: #4CD964" class="description">
-        {{$props.range}}
+        Media de R$ {{ `${$props.range}` }}
       </p>
     </div>
     <div class="card-footer">
@@ -17,8 +14,6 @@
         <div class="row">
           <div class="col-lg-3 col-md-14 ml-auto mr-auto">
             <h5>{{$props.name}}
-              <br>
-              <small>Grupo</small>
             </h5>
           </div>
         </div>
@@ -28,6 +23,7 @@
   </div>
 </template>
 <script>
+
 import {numeric} from "vee-validate/dist/rules.esm";
 
 export default {
@@ -45,7 +41,7 @@ export default {
       description: 'Descrição'
     },
     range:{
-      type: String,
+      type: Number,
       description: "Media de preço"
     },
     img:{

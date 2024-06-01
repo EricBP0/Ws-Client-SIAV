@@ -1,15 +1,5 @@
 <template>
   <div class="card card-user">
-    <div class="image">
-      <img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="static/img/logo-siav.png" alt="...">
-    </div>
-    <div>
-      <div class="author">
-        <a href="#">
-          <img style="display: block; margin-left: auto; margin-right: auto; width: 35%;" class="avatar border-gray" :src="$props.img" alt="...">
-        </a>
-      </div>
-    </div>
     <div class="card-footer">
       <hr>
       <div class="button-container">

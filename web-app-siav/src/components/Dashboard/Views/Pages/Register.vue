@@ -15,7 +15,7 @@
                 </info-section>
               </div>
               <div class="col-lg-4 col-md-6 mr-auto">
-                <card type="signup" class="text-center">
+                <card type="signup" class="text-center" v-loading="loading">
                   <template slot="header">
                     <h4 class="card-title">Registre-se</h4>
                     <div class="social">
@@ -32,16 +32,22 @@
                     </div>
                   </template>
 
-                  <fg-input v-model="form.name" addon-left-icon="nc-icon nc-single-02" placeholder="Nome completo..."></fg-input>
-                  <fg-input v-model="form.adress" addon-left-icon="nc-icon nc-world-2" placeholder="Endereço..."></fg-input>
-                  <fg-input v-model="form.fone" addon-left-icon="nc-icon nc-tablet-2" placeholder="Telefone..."></fg-input>
+                  <fg-input v-model="form.login" addon-left-icon="nc-icon nc-single-02" placeholder="Login"></fg-input>
+                  <fg-input v-model="form.senha" addon-left-icon="nc-icon nc-key-25" type="password" placeholder="Senha"></fg-input>
+
+                  <br>
+
+                  <fg-input v-model="form.nome" addon-left-icon="nc-icon nc-single-02" placeholder="Nome completo..."></fg-input>
+                  <fg-input v-model="form.endereco" addon-left-icon="nc-icon nc-world-2" placeholder="Endereço..."></fg-input>
+                  <fg-input v-model="form.documento" addon-left-icon="nc-icon nc-cloud-download-93" placeholder="Documento..."></fg-input>
+                  <fg-input v-model="form.telefone" addon-left-icon="nc-icon nc-tablet-2" placeholder="Telefone..."></fg-input>
                   <fg-input v-model="form.email" addon-left-icon="nc-icon nc-email-85" placeholder="Email..."></fg-input>
-                  <p-checkbox class="text-left" v-model="form.acceptTerms">
+                  <p-checkbox class="text-left">
                     Eu concordo com os
                     <a href="#something">Termos e condições</a>.
                   </p-checkbox>
 
-                  <p-button slot="footer" type="info" round>Get Started</p-button>
+                  <p-button @click="register" type="info" round>Registrar-se</p-button>
                 </card>
               </div>
             </div>
@@ -69,16 +75,41 @@
     },
     data(){
       return {
+        loading: false,
         form: {
-          name: '',
-          adress: '',
-          fone: '',
+          login: '',
+          senha: '',
+          nome: '',
+          documento: '',
+          endereco: '',
+          telefone: '',
           email: '',
-          acceptTerms: true
         }
       }
     },
     methods: {
+      async register() {
+        this.loading = true
+        console.log(this.form)
+        fetch('http://localhost:8081/auth/register', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(this.form)
+        })
+          .then(response => response.json())
+          .then(data => {
+            localStorage.removeItem('cliente')
+            localStorage.setItem('cliente', JSON.stringify(data));
+            this.$router.push('/admin/overview');
+            this.loading = false;
+          })
+          .catch(err => {
+            console.error('Registrar Falhou:', err);
+            this.loading = false;
+          });
+      },
       toggleNavbar() {
         document.body.classList.toggle('nav-open')
       },

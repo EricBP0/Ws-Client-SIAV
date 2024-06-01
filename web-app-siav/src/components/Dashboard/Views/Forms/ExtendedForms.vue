@@ -245,7 +245,8 @@
         },
         selects: {
           simple: '',
-          countries: [{value: 'Bahasa Indonesia', label: 'Bahasa Indonesia'},
+          countries: [
+            {value: 'Bahasa Indonesia', label: 'Bahasa Indonesia'},
             {value: 'Bahasa Melayu', label: 'Bahasa Melayu'},
             {value: 'Català', label: 'Català'},
             {value: 'Dansk', label: 'Dansk'},
