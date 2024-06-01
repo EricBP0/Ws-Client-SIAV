@@ -6,47 +6,45 @@
     <div class="info">
       <a data-toggle="collapse" :aria-expanded="!isClosed" @click="toggleMenu" href="#">
          <span>
-           Usuário
-           <b class="caret"></b>
+           {{ clienteNome }}
         </span>
       </a>
-      <div class="clearfix"></div>
-      <div>
-        <collapse-transition>
-          <ul class="nav nav-menu" v-show="!isClosed">
-            <li>
-              <a href="#">
-                <span class="sidebar-mini-icon">Mp</span>
-                <span class="sidebar-normal">Meu Perfil</span>
-              </a>
-            </li>
-          </ul>
-        </collapse-transition>
-      </div>
     </div>
   </div>
 </template>
-<script>
-  import { CollapseTransition } from 'vue2-transitions'
 
-  export default {
-    components: {
-      CollapseTransition
-    },
-    data() {
-      return {
-        isClosed: true
+<script>
+import { CollapseTransition } from 'vue2-transitions';
+
+export default {
+  components: {
+    CollapseTransition
+  },
+  data() {
+    return {
+      isClosed: true
+    };
+  },
+  computed: {
+    clienteNome() {
+      const cliente = localStorage.getItem('cliente');
+      if (cliente !== null) {
+        const clienteObj = JSON.parse(cliente);
+        return clienteObj.clienteNome || 'Usuário';
       }
-    },
-    methods: {
-      toggleMenu() {
-        this.isClosed = !this.isClosed
-      }
+      return 'Usuário';
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.isClosed = !this.isClosed;
     }
   }
+};
 </script>
+
 <style scoped>
-  .nav.nav-menu {
-    margin-top: 0;
-  }
+.nav.nav-menu {
+  margin-top: 0;
+}
 </style>

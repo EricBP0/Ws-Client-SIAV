@@ -17,7 +17,7 @@
     </div>
     <div class="sidebar-wrapper" ref="sidebarScrollArea">
       <slot>
-
+        <UserMenu/>
       </slot>
       <ul class="nav">
         <slot name="links">
@@ -31,14 +31,18 @@
             </sidebar-item>
           </sidebar-item>
         </slot>
-
       </ul>
+      <div style="position: absolute; bottom: 20px;width: 100%;text-align: center">
+        <p-button type="danger" @click="logout">Deslogar</p-button>
+      </div>
     </div>
   </div>
 </template>
 <script>
   import 'perfect-scrollbar/dist/css/perfect-scrollbar.css'
+  import UserMenu from "@/components/UIComponents/SidebarPlugin/UserMenu.vue";
   export default {
+    components: {UserMenu},
     props: {
       title: {
         type: String,
@@ -91,6 +95,10 @@
         }
         const PerfectScroll = await import('perfect-scrollbar')
         PerfectScroll.initialize(this.$refs.sidebarScrollArea)
+      },
+      logout() {
+        localStorage.removeItem('cliente');
+        window.location.reload();
       }
     },
     mounted () {
